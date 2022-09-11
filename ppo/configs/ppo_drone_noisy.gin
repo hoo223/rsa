@@ -1,6 +1,6 @@
-import residual_shared_autonomy.ppo
-import residual_shared_autonomy.drone_sim
-import residual_shared_autonomy.imitation_learning
+import rsa.ppo
+import rsa.drone_sim
+import rsa.imitation_learning
 
 train.algorithm = @ConstrainedResidualPPO
 train.maxt = 100000000
