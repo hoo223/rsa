@@ -24,3 +24,5 @@ ppo/logs/tb/
 ppo/logs_ur10/tb/
 
 imitation_learning/
+
+*.code-workspace
