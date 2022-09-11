@@ -1,2 +1,2 @@
-from residual_shared_autonomy.ppo.actor import *
-from residual_shared_autonomy.ppo.constrained_residual_ppo import ConstrainedResidualPPO
+from rsa.ppo.actor import *
+from rsa.ppo.constrained_residual_ppo import ConstrainedResidualPPO

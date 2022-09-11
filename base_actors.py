@@ -5,9 +5,9 @@
 import numpy as np
 import time
 import torch
-from residual_shared_autonomy.imitation_learning import BCNet
-from residual_shared_autonomy.lunar_lander import lunar_lander_policy_fn
-from residual_shared_autonomy.drone_sim import drone_ppo_policy_fn
+from rsa.imitation_learning import BCNet
+from rsa.lunar_lander import lunar_lander_policy_fn
+from rsa.drone_sim import drone_ppo_policy_fn
 from dl import Checkpointer
 import gin
 import os
@@ -305,7 +305,7 @@ class BCMultiActor(object):
 
 if __name__ == '__main__':
     import gym
-    import residual_shared_autonomy.envs
+    import rsa.envs
     from dl.rl import ensure_vec_env
     import time
 

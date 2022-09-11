@@ -1,6 +1,6 @@
-import residual_shared_autonomy.lunar_lander
-import residual_shared_autonomy.imitation_learning
-import residual_shared_autonomy.ppo
+import rsa.lunar_lander
+import rsa.imitation_learning
+import rsa.ppo
 
 # Parameters for Adam:
 # ==============================================================================
@@ -22,7 +22,7 @@ Adam.weight_decay = 0
 # ==============================================================================
 BCMultiActor.device = 'cuda:0'
 BCMultiActor.logdir = \
-    '/home-nfs/cbschaff/projects/residual_shared_autonomy/ppo/bc_agents_no_terrain'
+    '/home-nfs/cbschaff/projects/rsa/ppo/bc_agents_no_terrain'
 BCMultiActor.switch_prob = 0.001
 
 # Parameters for BCNet:

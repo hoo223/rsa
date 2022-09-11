@@ -59,7 +59,7 @@ class LunarLanderJoystickActor(object):
 
 if __name__ == '__main__':
     import gym
-    import residual_shared_autonomy.lunar_lander
+    import rsa.lunar_lander
     from dl.rl import ensure_vec_env
     import argparse
 

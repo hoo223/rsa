@@ -1,6 +1,6 @@
 from baselines.common.vec_env import VecEnvWrapper
-from residual_shared_autonomy import ResidualWrapper
-from residual_shared_autonomy.lunar_lander import env_lander
+from rsa import ResidualWrapper
+from rsa.lunar_lander import env_lander
 import numpy as np
 import gin
 

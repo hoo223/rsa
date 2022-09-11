@@ -1,6 +1,6 @@
-import residual_shared_autonomy.ppo
-import residual_shared_autonomy.imitation_learning
-import residual_shared_autonomy.lunar_lander
+import rsa.ppo
+import rsa.imitation_learning
+import rsa.lunar_lander
 
 # dl/trainer.py/train
 train.algorithm = @ConstrainedResidualPPO
@@ -40,7 +40,7 @@ ConstrainedResidualPPO.max_grad_norm = 0.5
 ConstrainedResidualPPO.ent_coef = 0.01
 ConstrainedResidualPPO.vf_coef = 0.5
 ConstrainedResidualPPO.gpu = True
-ConstrainedResidualPPO.base_actor_cls = @UR10JoystickActor #@UR10JoystickActor #@UR10RandomActor # residual_shared_autonomy/base_actors.py 
+ConstrainedResidualPPO.base_actor_cls = @UR10JoystickActor #@UR10JoystickActor #@UR10RandomActor # rsa/base_actors.py 
 #ConstrainedResidualPPO.wrapper_fn = @lunar_lander_fuel_wrapper #v
 
 #BCMultiActor.logdir = "./models/behavioral_cloning_agents_lunar" #v

@@ -1,5 +1,5 @@
-import residual_shared_autonomy.imitation_learning
-import residual_shared_autonomy.lunar_lander
+import rsa.imitation_learning
+import rsa.lunar_lander
 
 # Parameters for Adam:
 # ==============================================================================

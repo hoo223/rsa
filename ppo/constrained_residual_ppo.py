@@ -7,7 +7,7 @@ from dl.rl.data_collection import RolloutDataManager
 from dl.rl.modules import Policy
 from dl.rl.util import rl_evaluate, rl_record, misc
 from dl import logger, Algorithm, Checkpointer
-from residual_shared_autonomy import ResidualWrapper
+from rsa import ResidualWrapper
 import gin
 import numpy as np
 import os
@@ -127,9 +127,9 @@ class ConstrainedResidualPPO(Algorithm):
         
         # residual env
         self.env = ResidualWrapper(self.env, self.base_actor_cls(self.env)) # from gin file
-                                                                            # base_actor_cls = @RandomActor (from residual_shared_autonomy/base_actors.py)
+                                                                            # base_actor_cls = @RandomActor (from rsa/base_actors.py)
                                                                             # = base policy
-                                                                            # ResidualWrapper (from residual_shared_autonomy/residual_wrapper.py)
+                                                                            # ResidualWrapper (from rsa/residual_wrapper.py)
         print("Residual Wrapped")
         
         if wrapper_fn:
@@ -366,7 +366,7 @@ if __name__ == '__main__':
     from dl.rl.modules import ActorCriticBase
     from dl.rl import make_env
     from dl import train
-    import residual_shared_autonomy.envs
+    import rsa.envs
     from dl.modules import DiagGaussian
     import torch.nn.functional as F
     from functools import partial
