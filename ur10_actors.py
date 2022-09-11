@@ -23,6 +23,8 @@ class UR10JoystickActor(object):
         """Init."""
         self.action_mask = action_mask
         self.random = random
+        self.rnd = rnd
+        self.rnd.seed(0)
         self.human_agent_action = np.array([[0., 0.], [0., 0.]], dtype=np.float32)  # noop
         self.button = np.array([0], dtype=np.int32)
         pygame.joystick.init()
@@ -76,15 +78,15 @@ class UR10JoystickActor(object):
         self.action_cnt += 1
         if self.action_cnt > self.action_period:
             print(self.action_mask)
-            self.action = np.array([rnd.choice([-1, 0, 1])*self.action_mask[0], 
-                                    rnd.choice([-1, 0, 1])*self.action_mask[1], 
-                                    rnd.choice([-1, 0, 1])*self.action_mask[2], 
-                                    rnd.choice([-1, 0, 1])*self.action_mask[3], 
-                                    rnd.choice([-1, 0, 1])*self.action_mask[4], 
-                                    rnd.choice([-1, 0, 1])*self.action_mask[5], 
+            self.action = np.array([self.rnd.choice([-1, 0, 1])*self.action_mask[0], 
+                                    self.rnd.choice([-1, 0, 1])*self.action_mask[1], 
+                                    self.rnd.choice([-1, 0, 1])*self.action_mask[2], 
+                                    self.rnd.choice([-1, 0, 1])*self.action_mask[3], 
+                                    self.rnd.choice([-1, 0, 1])*self.action_mask[4], 
+                                    self.rnd.choice([-1, 0, 1])*self.action_mask[5], 
                                     -1.0])
             self.action_cnt = 0
-            self.action_period = rnd.randrange(10,101)
+            self.action_period = rnd.randrange(5,101)
             
         return self.action
 
