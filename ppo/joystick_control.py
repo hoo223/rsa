@@ -1,7 +1,7 @@
 """Render trained agents."""
 import dl
 import argparse
-from rsa.base_actors import UR10RandomActor, UR10JoystickActor
+from rsa.ur10_actors import UR10JoystickActor
 from rsa.ppo import ConstrainedResidualPPO
 from rsa.lunar_lander import LunarLanderJoystickActor
 from rsa.drone_sim import DroneJoystickActor, joystick_agent

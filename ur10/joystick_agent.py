@@ -11,9 +11,9 @@ if __name__ == '__main__':
     prefix = 'unity'
     env = gym.make("ur10_env:ur10-v0")
     #env = ensure_vec_env(env)
-    actor = UR10JoystickActor(action_mask=[1, 0, 0, 0, 0, 0], random=True)
+    actor = UR10JoystickActor(action_mask=[1, 1, 1, 0, 0, 0], random=True)
     
-    for _ in range(1):
+    for _ in range(5):
         ob = env.reset()
         done = False
         reward = 0.0
@@ -25,4 +25,4 @@ if __name__ == '__main__':
             if reward > 2000:
                 done = True
             print(reward)
-    rospy.set_param(prefix+'/mode', 0) 
+    env.close()
