@@ -4,7 +4,7 @@ import argparse
 from rsa.ur10_actors import UR10JoystickActor
 from rsa.ppo import ConstrainedResidualPPO
 from rsa.lunar_lander import LunarLanderJoystickActor
-from rsa.drone_sim import DroneJoystickActor, joystick_agent
+#from rsa.drone_sim import DroneJoystickActor, joystick_agent
 #from rsa.ur10.joystick_agent import UR10JoystickActor
 import os
 
@@ -16,12 +16,12 @@ if __name__ == '__main__':
     parser.add_argument('--ur10', action='store_true', help='conrol luanr reacher env')
     args = parser.parse_args()
 
-    if args.drone:
-        dl.load_config(os.path.join(args.logdir, 'config.gin'),
-                       ['make_env.env_id="DroneReacherBot-v0"'])
-        trainer = ConstrainedResidualPPO(args.logdir, nenv=1,
-                                         base_actor_cls=DroneJoystickActor)
-    elif args.reacher:
+    # if args.drone:
+    #     dl.load_config(os.path.join(args.logdir, 'config.gin'),
+    #                    ['make_env.env_id="DroneReacherBot-v0"'])
+    #     trainer = ConstrainedResidualPPO(args.logdir, nenv=1,
+    #                                      base_actor_cls=DroneJoystickActor)
+    if args.reacher:
         dl.load_config(os.path.join(args.logdir, 'config.gin'),
                        ['make_env.env_id="LunarLanderReacher-v2"'])
         trainer = ConstrainedResidualPPO(args.logdir, nenv=1,

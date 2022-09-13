@@ -13,11 +13,6 @@ import gin
 import os
 import pygame
 
-# ros library
-import rospy
-from ur10_python_interface.srv import SolveIk
-from tf.transformations import euler_from_quaternion, quaternion_from_euler
-from geometry_msgs.msg import PoseStamped, Quaternion, Pose
 
 
 @gin.configurable

@@ -10,7 +10,7 @@ if __name__ == '__main__':
     
     prefix = 'unity'
     env = gym.make("ur10_env:ur10-v0")
-    #env = ensure_vec_env(env)
+    env = ensure_vec_env(env)
     actor = UR10JoystickActor(action_mask=[1, 1, 1, 0, 0, 0], random=True)
     
     for _ in range(5):
@@ -20,6 +20,7 @@ if __name__ == '__main__':
 
         while not done:
             action = actor(ob)
+            print(action)
             ob, r, done, _ = env.step(action)
             reward += r
             if reward > 2000:

@@ -65,30 +65,28 @@ class UR10JoystickActor(object):
             self.human_agent_action[0, 0] = 0.0
         if abs(self.human_agent_action[1, 0]) < 0.01:
             self.human_agent_action[1, 0] = 0.0
-        action = np.array([self.human_agent_action[0][0], 
-                            self.human_agent_action[0][1], 
-                            self.human_agent_action[1][0], 
-                            0, 
-                            0, 
-                            self.human_agent_action[1][1], 
-                            self.human_agent_action[0]])
-        return action
+        action = [self.human_agent_action[0][0], 
+                    self.human_agent_action[0][1], 
+                    self.human_agent_action[1][0], 
+                    0, 
+                    0, 
+                    self.human_agent_action[1][1], 
+                    self.human_agent_action[0]]
+        return np.asarray(action)
     
     def _get_random_action(self):
         self.action_cnt += 1
         if self.action_cnt > self.action_period:
-            print(self.action_mask)
-            self.action = np.array([self.rnd.choice([-1, 0, 1])*self.action_mask[0], 
-                                    self.rnd.choice([-1, 0, 1])*self.action_mask[1], 
-                                    self.rnd.choice([-1, 0, 1])*self.action_mask[2], 
-                                    self.rnd.choice([-1, 0, 1])*self.action_mask[3], 
-                                    self.rnd.choice([-1, 0, 1])*self.action_mask[4], 
-                                    self.rnd.choice([-1, 0, 1])*self.action_mask[5], 
-                                    -1.0])
+            self.action = [self.rnd.choice([-1, 0, 1])*self.action_mask[0], 
+                            self.rnd.choice([-1, 0, 1])*self.action_mask[1], 
+                            self.rnd.choice([-1, 0, 1])*self.action_mask[2], 
+                            self.rnd.choice([-1, 0, 1])*self.action_mask[3], 
+                            self.rnd.choice([-1, 0, 1])*self.action_mask[4], 
+                            self.rnd.choice([-1, 0, 1])*self.action_mask[5]]
             self.action_cnt = 0
             self.action_period = rnd.randrange(5,101)
             
-        return self.action
+        return np.asarray(self.action)
 
     def __call__(self, ob):
         """Act."""

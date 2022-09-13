@@ -47,8 +47,8 @@ ConstrainedResidualPPO.base_actor_cls = @UR10JoystickActor #@UR10JoystickActor #
 #BCMultiActor.device = "cuda:0"
 #BCMultiActor.switch_prob = 0.001
 
-UR10RandomActor.action_period = 50
-UR10RandomActor.space_type = "task" # "task", "joint"
+UR10JoystickActor.random = True
+#UR10JoystickActor.space_type = "task" # "task", "joint"
 
 
 #BCNet.ob_shape = 9
